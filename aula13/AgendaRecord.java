@@ -6,7 +6,7 @@ public class AgendaRecord {
 		String nome, 
 		String telefone, 
 		int idade
-	){};
+	){}
 
 	static private Contato[] contatos = new Contato[100];
 	static private int posicaoContato = 0;
