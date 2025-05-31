@@ -1,14 +1,13 @@
 package agenda;
-
 import java.util.Scanner;
 
-public class agendaRecord {
+public class AgendaRecord {
 
 	private record Contato(
 		String nome, 
 		String telefone, 
 		int idade
-	){};
+	){}
 
 	static private Contato[] contatos = new Contato[100];
 	static private int posicaoContato = 0;
@@ -18,8 +17,7 @@ public class agendaRecord {
 		System.out.println(" - - Agenda de Telefone - -");
 		System.out.println(" (1) Adicionar telefone");
 		System.out.println(" (2) Procurar telefone");
-        System.out.println(" (3) Mostrar todos os telefones");
-		System.out.println(" (4) Sair");
+		System.out.println(" (9) Sair");
 		System.out.printf("Opção: ");
 		int opcao = in.nextInt();in.nextLine();
 		return opcao;
@@ -53,21 +51,6 @@ public class agendaRecord {
 		
 	}
 
-    static private void menuProcurarTodosContato(){
-        System.out.println(" - - Todos os contatos - - ");
-        if (posicaoContato>=0) {
-            for (int i = 0; i<posicaoContato; i++) {
-                System.out.printf("Contato número [%d]\n", (i+1));
-                System.out.printf("Nome: %s%n", contatos[i].nome());
-			    System.out.printf("Telefone: %s%n", contatos[i].telefone());
-			    System.out.printf("Idade: %d%n", contatos[i].idade());
-            }
-        }
-        else {
-            System.out.println("Nenhum contato encontrado!");	
-        } 
-    }
-
 	static private void adicionarContato(String nome, String telefone, int idade){
 		contatos[posicaoContato] = new Contato(nome,telefone,idade);
 		posicaoContato += 1;
@@ -86,7 +69,7 @@ public class agendaRecord {
 		int opcao;
 		while (true){
 			opcao = menuPrincipal();
-			if(opcao==4){
+			if(opcao==9){
 				break;
 			}
 			else if(opcao==1){
@@ -95,9 +78,6 @@ public class agendaRecord {
 			else if(opcao==2){
 				menuProcurarContato();
 			}
-            else if(opcao==3){
-                menuProcurarTodosContato();
-            }
 			else{
 				System.out.println("Opção inválida!");
 			}
@@ -105,4 +85,3 @@ public class agendaRecord {
 		in.close();
 	}
 }
-

@@ -1,5 +1,3 @@
-package aula09;
-
 import java.util.Scanner;
 
 public class exe08 {
